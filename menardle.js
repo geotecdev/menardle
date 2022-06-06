@@ -105,6 +105,14 @@ function passLetter(letterGuess) {
             selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
         }
     } 
+    else if (letterGuess == "backspace") {
+        if (wordGuess.length > 0) {
+            wordGuess = wordGuess.substring(0, wordGuess.length - 1);
+            tileIndex--;
+            selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
+            selectedTile.innerHTML = "";
+        }
+    }
 }
 
 function getKbKeys() {
@@ -263,6 +271,9 @@ function createKeyboard()
         else if (key === "backspace") {
             keyElement.classList.add("keyboard__key--wide");
             keyElement.innerHTML = "←";
+            keyElement.addEventListener("click", () => {
+                passLetter("backspace")
+            });
         }
         else if (key === "space") {
             keyElement.classList.add("keyboard__key--extra-wide");
