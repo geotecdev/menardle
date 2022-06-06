@@ -7,6 +7,7 @@ let currentDate;
 let currentDateEl;
 let currentDateText;
 let solution = "";
+let solutionObj;
 let wordGuess = '';
 let wordGuessArea;
 let tileIndex = 0;
@@ -16,12 +17,31 @@ let selectedRow;
 let puzzleDatesDd;
 let gameHasStarted = false;
 let gameIsWon = false;
+let resultsModal;
+let resultsModalContent;
+let closeSpan;
+let resultsText;
+let resetOnWinBtn;
+let resultImage;
 
 window.onload = function() {
     //populate puzzleDatesBox with dates <= today
     //set solution for current 
-    
-    currentDate = new Date();   
+    resultsModal = document.querySelector("#resultsModal");
+    resultsModalContent = document.querySelector("#resultsModalContent");
+    closeSpan = document.querySelector("#closeSpan");
+    closeSpan.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        changeElementVisibility(resultsModal, "none");
+    });
+    resultsText = document.querySelector("#resultsText");
+    resetOnWinBtn = document.querySelector("#resetOnWinBtn");
+    resetOnWinBtn.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        location.reload();
+    });
+    resultImage = document.querySelector("#resultImage");
+    currentDate = new Date();
     currentDateText = dateToString(currentDate);
     let avalibleDates = getAvalibleDates(currentDateText);
     puzzleDatesDd = document.querySelector("#puzzleDatesDropdown");
@@ -49,7 +69,8 @@ function puzzleDateChange(evt) {
     currentDateText = evt.options[evt.selectedIndex].text;
     currentDate = Date.parse(currentDateText);
     console.log("dd event: " + currentDateText);
-    solution = solutionByDate(currentDateText)["solution"];
+    solutionObj = solutionByDate(currentDateText)
+    solution = solutionObj["solution"];
 }
 
 function dateToString(date) {
@@ -95,7 +116,7 @@ function passLetter(letterGuess) {
             if (gameIsWon) {
                 setTimeout(function() {
                     gameIsWon = false;
-                    alert("YOU WIN!!!!");                    
+                    showResultsModal(solutionObj);                    
                 }, 500);                
             }
 
@@ -315,4 +336,29 @@ function createKeyboard()
 
     //keyboardContainer.appendChild(fragment);
     return fragment;
+}
+
+function showResultsModal(solutionObj) {
+    console.log(solutionObj.displayText);
+    let rawResultText = solutionObj.displayText;
+    if (solutionObj.linkUrl != undefined && solutionObj.linkUrl !== "") {
+        //find text to attach link
+        if (solutionObj.displayText.includes('[') && solutionObj.displayText.includes(']')) {
+            let hlText = solutionObj.displayText.substring(solutionObj.displayText.indexOf("[") + 1, solutionObj.displayText.indexOf("]"));
+            solutionObj.displayText = solutionObj.displayText.replace("[", "<a href='" + solutionObj.linkUrl);
+            solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "'>" + hlText + "</a>");
+            
+        }
+    }
+    if (solutionObj.imageUrl != undefined && solutionObj.imageUrl !== "") {
+
+    }
+
+    resultsText.innerHTML = solutionObj.displayText;
+    changeElementVisibility(resultsModal, "block");
+
+}
+
+function changeElementVisibility(el, displayStyle) {
+    el.style.display = displayStyle;
 }

@@ -44,7 +44,7 @@ function getPuzzleSolutions() {
     dataCsv =
     "solution;puzzleDate;maxDate;linkUrl;imageUrl;displayText" + '\n' +
     "DRILL;5/30/2022;6/5/2022;;https://www.menardgroupusa.com/wp-content/uploads/2015/07/ProjectPictures_Goya4.jpg;Drill rigs are the workhorses of the menard equipment fleet. Here is one of our Bauer BG 20s in action at a warehouse project for Goya foods." + '\n' +
-    "GROUT;6/06/2022;6/12/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;Controlled Modulus Columns (CMC)®] are typically formed of cementitious GROUT. " + '\n' +
+    "GROUT;6/06/2022;6/12/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;[Controlled Modulus Columns (CMC)®] are typically formed of cementitious GROUT. " + '\n' +
     "STONE;6/13/2022;6/19/2022;https://www.menardgroupusa.com/solutions/stone-columns-for-ground-improvement/;;[STONE] is one of the most ubiquitous construction materials in the world.  Stone columns are ground improvement elements commonly used to reinforce or densify the ground." + '\n' +
     "GLOVE;6/20/2022;6/26/2022;https://hsi.com/blog/hand-safety-and-injury-prevention;;Safety [GLOVE]s are an important part of standard Personal Protective Equipment (PPE) worn on site by our crews." + '\n' +
     "PRINT;6/27/2022;7/03/2022;https://www.menardgroupusa.com/solutions/dynamic-compaction-for-ground-improvement/;;The location of [dynamic compaction] drops, the depression or crater left behind is sometimes referred to as a PRINT." + '\n' +
