@@ -1,31 +1,87 @@
 function solutionByDate(gameDateText) {
-
-    let solutionsList = [{"solution": "EARTH", "puzzleDate": "4/29/2022"},{"solution": "TEAMS", "puzzleDate": "4/30/2022"},{"solution": "BRICK", "puzzleDate": "5/1/2022"},{"solution": "PLACE", "puzzleDate": "5/2/2022"},{"solution": "FLOTS", "puzzleDate": "5/3/2022"},{"solution": "WHARF", "puzzleDate": "5/4/2022"},{"solution": "APPLY", "puzzleDate": "5/5/2022"},{"solution": "PIERS", "puzzleDate": "5/6/2022"},{"solution": "CREWS", "puzzleDate": "5/7/2022"},{"solution": "RAPID", "puzzleDate": "5/8/2022"},{"solution": "VALUE", "puzzleDate": "5/9/2022"},{"solution": "LEVEE", "puzzleDate": "5/10/2022"},{"solution": "LIMIT", "puzzleDate": "5/11/2022"},{"solution": "DENSE", "puzzleDate": "5/12/2022"},{"solution": "PRINT", "puzzleDate": "5/13/2022"},{"solution": "ALARM", "puzzleDate": "5/14/2022"},{"solution": "HOIST", "puzzleDate": "5/15/2022"},{"solution": "LIFTS", "puzzleDate": "5/16/2022"},{"solution": "SOLVE", "puzzleDate": "5/17/2022"},{"solution": "LAYER", "puzzleDate": "5/18/2022"},{"solution": "DRONE", "puzzleDate": "5/19/2022"},{"solution": "ALIGN", "puzzleDate": "5/20/2022"},{"solution": "HELIX", "puzzleDate": "5/21/2022"},{"solution": "THUMP", "puzzleDate": "5/22/2022"},{"solution": "SLICK", "puzzleDate": "5/23/2022"},{"solution": "STIFF", "puzzleDate": "5/24/2022"},{"solution": "DROPS", "puzzleDate": "5/25/2022"},{"solution": "MOIST", "puzzleDate": "5/26/2022"},{"solution": "SLOPE", "puzzleDate": "5/27/2022"},{"solution": "RADII", "puzzleDate": "5/28/2022"},{"solution": "QUICK", "puzzleDate": "5/29/2022"},{"solution": "GLOVE", "puzzleDate": "5/30/2022"},{"solution": "DRAIN", "puzzleDate": "5/31/2022"},{"solution": "GLASS", "puzzleDate": "6/1/2022"},{"solution": "DRILL", "puzzleDate": "6/2/2022"},{"solution": "POINT", "puzzleDate": "6/3/2022"},{"solution": "BREAK", "puzzleDate": "6/4/2022"},{"solution": "STRAP", "puzzleDate": "6/5/2022"},{"solution": "POWER", "puzzleDate": "6/6/2022"},{"solution": "STEER", "puzzleDate": "6/7/2022"},{"solution": "GROUT", "puzzleDate": "6/8/2022"},{"solution": "PORTS", "puzzleDate": "6/9/2022"},{"solution": "MIXER", "puzzleDate": "6/10/2022"},{"solution": "PLANS", "puzzleDate": "6/11/2022"},{"solution": "TRACK", "puzzleDate": "6/12/2022"},{"solution": "WHEEL", "puzzleDate": "6/13/2022"},{"solution": "CABLE", "puzzleDate": "6/14/2022"},{"solution": "PROBE", "puzzleDate": "6/15/2022"},{"solution": "CLAYS", "puzzleDate": "6/16/2022"},{"solution": "KARST", "puzzleDate": "6/17/2022"},{"solution": "FLOOR", "puzzleDate": "6/18/2022"},{"solution": "STEEL", "puzzleDate": "6/19/2022"},{"solution": "GAGUE", "puzzleDate": "6/20/2022"},{"solution": "SHARE", "puzzleDate": "6/21/2022"},{"solution": "STORM", "puzzleDate": "6/22/2022"},{"solution": "RATED", "puzzleDate": "6/23/2022"},{"solution": "LOOSE ", "puzzleDate": "6/24/2022"},{"solution": "SPOIL", "puzzleDate": "6/25/2022"},{"solution": "RIGID", "puzzleDate": "6/26/2022"},{"solution": "BLADE", "puzzleDate": "6/27/2022"},{"solution": "VIBRO", "puzzleDate": "6/28/2022"},{"solution": "TRACE", "puzzleDate": "6/29/2022"},{"solution": "GRIND", "puzzleDate": "6/30/2022"},{"solution": "WICKS", "puzzleDate": "7/1/2022"},{"solution": "PLATE", "puzzleDate": "7/2/2022"},{"solution": "PRIDE", "puzzleDate": "7/3/2022"},{"solution": "STAKE", "puzzleDate": "7/4/2022"},{"solution": "THANK", "puzzleDate": "7/5/2022"},{"solution": "SCREW", "puzzleDate": "7/6/2022"},{"solution": "SLING", "puzzleDate": "7/7/2022"},{"solution": "TEETH", "puzzleDate": "7/8/2022"},{"solution": "DOZER", "puzzleDate": "7/9/2022"},{"solution": "SHEAR", "puzzleDate": "7/10/2022"},{"solution": "SILTY", "puzzleDate": "7/11/2022"},{"solution": "BUILD", "puzzleDate": "7/12/2022"},{"solution": "AXIAL", "puzzleDate": "7/13/2022"},{"solution": "SANDY", "puzzleDate": "7/14/2022"},{"solution": "GRAIN", "puzzleDate": "7/15/2022"},{"solution": "BULGE", "puzzleDate": "7/16/2022"},{"solution": "AUGER", "puzzleDate": "7/17/2022"},{"solution": "VESTS", "puzzleDate": "7/18/2022"},{"solution": "CRANE", "puzzleDate": "7/19/2022"},{"solution": "SLIDE", "puzzleDate": "7/20/2022"},{"solution": "STONE", "puzzleDate": "7/21/2022"},{"solution": "VOIDS", "puzzleDate": "7/22/2022"},{"solution": "QUAKE", "puzzleDate": "7/23/2022"},{"solution": "DEPTH", "puzzleDate": "7/24/2022"},{"solution": "SIEVE", "puzzleDate": "7/25/2022"},{"solution": "BOOTS", "puzzleDate": "7/26/2022"},{"solution": "WATER", "puzzleDate": "7/27/2022"},{"solution": "PLANT", "puzzleDate": "7/28/2022"}];    
     
-    let todayDate = new Date();
-    let solution = "CRANE";
+    let gameDate = parseDate(gameDateText);  
+    let allSolutions = getPuzzleSolutions();
     
-    let solutionObj = solutionsList.find(sl => sl.puzzleDate == gameDateText);
-
-    if (solutionObj !== undefined) {        
-        solution = solutionObj.solution;
-    }
-
-    return solution;
-}
-
-function getAvalibleDates(gameDateText) {
-    let solutionsList = [{"solution": "EARTH", "puzzleDate": "4/29/2022"},{"solution": "TEAMS", "puzzleDate": "4/30/2022"},{"solution": "BRICK", "puzzleDate": "5/1/2022"},{"solution": "PLACE", "puzzleDate": "5/2/2022"},{"solution": "FLOTS", "puzzleDate": "5/3/2022"},{"solution": "WHARF", "puzzleDate": "5/4/2022"},{"solution": "APPLY", "puzzleDate": "5/5/2022"},{"solution": "PIERS", "puzzleDate": "5/6/2022"},{"solution": "CREWS", "puzzleDate": "5/7/2022"},{"solution": "RAPID", "puzzleDate": "5/8/2022"},{"solution": "VALUE", "puzzleDate": "5/9/2022"},{"solution": "LEVEE", "puzzleDate": "5/10/2022"},{"solution": "LIMIT", "puzzleDate": "5/11/2022"},{"solution": "DENSE", "puzzleDate": "5/12/2022"},{"solution": "PRINT", "puzzleDate": "5/13/2022"},{"solution": "ALARM", "puzzleDate": "5/14/2022"},{"solution": "HOIST", "puzzleDate": "5/15/2022"},{"solution": "LIFTS", "puzzleDate": "5/16/2022"},{"solution": "SOLVE", "puzzleDate": "5/17/2022"},{"solution": "LAYER", "puzzleDate": "5/18/2022"},{"solution": "DRONE", "puzzleDate": "5/19/2022"},{"solution": "ALIGN", "puzzleDate": "5/20/2022"},{"solution": "HELIX", "puzzleDate": "5/21/2022"},{"solution": "THUMP", "puzzleDate": "5/22/2022"},{"solution": "SLICK", "puzzleDate": "5/23/2022"},{"solution": "STIFF", "puzzleDate": "5/24/2022"},{"solution": "DROPS", "puzzleDate": "5/25/2022"},{"solution": "MOIST", "puzzleDate": "5/26/2022"},{"solution": "SLOPE", "puzzleDate": "5/27/2022"},{"solution": "RADII", "puzzleDate": "5/28/2022"},{"solution": "QUICK", "puzzleDate": "5/29/2022"},{"solution": "GLOVE", "puzzleDate": "5/30/2022"},{"solution": "DRAIN", "puzzleDate": "5/31/2022"},{"solution": "GLASS", "puzzleDate": "6/1/2022"},{"solution": "DRILL", "puzzleDate": "6/2/2022"},{"solution": "POINT", "puzzleDate": "6/3/2022"},{"solution": "BREAK", "puzzleDate": "6/4/2022"},{"solution": "STRAP", "puzzleDate": "6/5/2022"},{"solution": "POWER", "puzzleDate": "6/6/2022"},{"solution": "STEER", "puzzleDate": "6/7/2022"},{"solution": "GROUT", "puzzleDate": "6/8/2022"},{"solution": "PORTS", "puzzleDate": "6/9/2022"},{"solution": "MIXER", "puzzleDate": "6/10/2022"},{"solution": "PLANS", "puzzleDate": "6/11/2022"},{"solution": "TRACK", "puzzleDate": "6/12/2022"},{"solution": "WHEEL", "puzzleDate": "6/13/2022"},{"solution": "CABLE", "puzzleDate": "6/14/2022"},{"solution": "PROBE", "puzzleDate": "6/15/2022"},{"solution": "CLAYS", "puzzleDate": "6/16/2022"},{"solution": "KARST", "puzzleDate": "6/17/2022"},{"solution": "FLOOR", "puzzleDate": "6/18/2022"},{"solution": "STEEL", "puzzleDate": "6/19/2022"},{"solution": "GAGUE", "puzzleDate": "6/20/2022"},{"solution": "SHARE", "puzzleDate": "6/21/2022"},{"solution": "STORM", "puzzleDate": "6/22/2022"},{"solution": "RATED", "puzzleDate": "6/23/2022"},{"solution": "LOOSE ", "puzzleDate": "6/24/2022"},{"solution": "SPOIL", "puzzleDate": "6/25/2022"},{"solution": "RIGID", "puzzleDate": "6/26/2022"},{"solution": "BLADE", "puzzleDate": "6/27/2022"},{"solution": "VIBRO", "puzzleDate": "6/28/2022"},{"solution": "TRACE", "puzzleDate": "6/29/2022"},{"solution": "GRIND", "puzzleDate": "6/30/2022"},{"solution": "WICKS", "puzzleDate": "7/1/2022"},{"solution": "PLATE", "puzzleDate": "7/2/2022"},{"solution": "PRIDE", "puzzleDate": "7/3/2022"},{"solution": "STAKE", "puzzleDate": "7/4/2022"},{"solution": "THANK", "puzzleDate": "7/5/2022"},{"solution": "SCREW", "puzzleDate": "7/6/2022"},{"solution": "SLING", "puzzleDate": "7/7/2022"},{"solution": "TEETH", "puzzleDate": "7/8/2022"},{"solution": "DOZER", "puzzleDate": "7/9/2022"},{"solution": "SHEAR", "puzzleDate": "7/10/2022"},{"solution": "SILTY", "puzzleDate": "7/11/2022"},{"solution": "BUILD", "puzzleDate": "7/12/2022"},{"solution": "AXIAL", "puzzleDate": "7/13/2022"},{"solution": "SANDY", "puzzleDate": "7/14/2022"},{"solution": "GRAIN", "puzzleDate": "7/15/2022"},{"solution": "BULGE", "puzzleDate": "7/16/2022"},{"solution": "AUGER", "puzzleDate": "7/17/2022"},{"solution": "VESTS", "puzzleDate": "7/18/2022"},{"solution": "CRANE", "puzzleDate": "7/19/2022"},{"solution": "SLIDE", "puzzleDate": "7/20/2022"},{"solution": "STONE", "puzzleDate": "7/21/2022"},{"solution": "VOIDS", "puzzleDate": "7/22/2022"},{"solution": "QUAKE", "puzzleDate": "7/23/2022"},{"solution": "DEPTH", "puzzleDate": "7/24/2022"},{"solution": "SIEVE", "puzzleDate": "7/25/2022"},{"solution": "BOOTS", "puzzleDate": "7/26/2022"},{"solution": "WATER", "puzzleDate": "7/27/2022"},{"solution": "PLANT", "puzzleDate": "7/28/2022"}];
-    let datesList = [];
-    for (let i = 0; i < solutionsList.length; i++) {
-        const solution = solutionsList[i];
-        let sDate = solution.puzzleDate;
-        datesList.push(sDate);
-        if (sDate === gameDateText) {
+    let dateSolution;
+    for (let i = 0; i < allSolutions.length; i++) {
+        let sol = allSolutions[i];
+        let solDate = sol["puzzleDate"];
+        let maxDate = sol["maxDate"];
+        if (gameDate >= solDate && gameDate <= maxDate) {
+            dateSolution = sol;
             break;
         }
     }
 
-    datesList = datesList.reverse();
+    console.log('\n');
+    console.log(dateSolution);
+    return dateSolution;
+}
+
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+function getAvalibleDates(gameDateText) {
+    let gameDate = parseDate(gameDateText);
+    let datesList = [];
+    let allSolutions = getPuzzleSolutions();
+    for (let i = allSolutions.length - 1; i >= 0; i--) {
+        let sol = allSolutions[i];
+        if (sol["puzzleDate"] <= gameDate) {
+            datesList.push(sol["puzzleDate"].toLocaleDateString("en-US"));
+        }        
+    }
+
     return datesList;
 }
+
+function getPuzzleSolutions() {
+    let solutionObjs = [];
+    dataCsv =
+    "solution;puzzleDate;maxDate;linkUrl;imageUrl;displayText" + '\n' +
+    "DRILL;5/30/2022;6/5/2022;;https://www.menardgroupusa.com/wp-content/uploads/2015/07/ProjectPictures_Goya4.jpg;Drill rigs are the workhorses of the menard equipment fleet. Here is one of our Bauer BG 20s in action at a warehouse project for Goya foods." + '\n' +
+    "GROUT;6/06/2022;6/12/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;Controlled Modulus Columns (CMC)®] are typically formed of cementitious GROUT. " + '\n' +
+    "STONE;6/13/2022;6/19/2022;https://www.menardgroupusa.com/solutions/stone-columns-for-ground-improvement/;;[STONE] is one of the most ubiquitous construction materials in the world.  Stone columns are ground improvement elements commonly used to reinforce or densify the ground." + '\n' +
+    "GLOVE;6/20/2022;6/26/2022;https://hsi.com/blog/hand-safety-and-injury-prevention;;Safety [GLOVE]s are an important part of standard Personal Protective Equipment (PPE) worn on site by our crews." + '\n' +
+    "PRINT;6/27/2022;7/03/2022;https://www.menardgroupusa.com/solutions/dynamic-compaction-for-ground-improvement/;;The location of [dynamic compaction] drops, the depression or crater left behind is sometimes referred to as a PRINT." + '\n' +
+    "TRUCK;7/04/2022;7/09/2022;;https://www.legacyclassictrucks.com/images/F218668868.jpg;Rugged and dependable, the TRUCK is the vehicle of choice for many in the construction industry."    
+
+    let csvLines = dataCsv.split('\n');
+    if (csvLines.length > 1)
+    {        
+        let firstLine = csvLines[0];
+        let propNames = firstLine.split(';');
+        for (let i = 1; i < csvLines.length; i++) {
+            let line = csvLines[i];
+            let lineParts = line.split(';');
+            let j = 0;
+            let solutionObj = {}
+            while (j < lineParts.length && j < propNames.length) {
+                let propName = propNames[j];
+                if (propNames[j].includes("Date")) {
+                    solutionObj[propName] = parseDate(lineParts[j]);
+                }
+                else {
+                    solutionObj[propName] = lineParts[j];
+                }                
+                j++;
+            }
+            solutionObjs.push(solutionObj);
+        }
+    }
+
+    console.log(solutionObjs)
+    return solutionObjs;
+}
+
+function parseDate(input) {
+
+    let parts = input.split('/');
+  
+    // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
+    return new Date(parts[2], parts[0]-1, parts[1]); // Note: months are 0-based
+  }

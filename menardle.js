@@ -17,16 +17,18 @@ let puzzleDatesDd;
 
 window.onload = function() {
     //populate puzzleDatesBox with dates <= today
-    //set solution for current day
-    currentDate = new Date();        
+    //set solution for current 
+    
+    currentDate = new Date();   
     currentDateText = dateToString(currentDate);
     let avalibleDates = getAvalibleDates(currentDateText);
     puzzleDatesDd = document.querySelector("#puzzleDatesDropdown");
-
+    console.log(avalibleDates);
     avalibleDates.forEach(aDate => {
         let option = document.createElement("option");
         option.value = aDate;
         option.innerHTML = aDate;
+        console.log(option);
         puzzleDatesDd.appendChild(option);
     });
 
@@ -43,10 +45,11 @@ window.onload = function() {
 }
 
 function puzzleDateChange(evt) {
+    console.log(evt.options[evt.selectedIndex]);
     currentDateText = evt.options[evt.selectedIndex].text;
     currentDate = Date.parse(currentDateText);
     console.log("dd event: " + currentDateText);
-    solution = solutionByDate(currentDateText);
+    solution = solutionByDate(currentDateText)["solution"];
 }
 
 function dateToString(date) {
@@ -290,4 +293,12 @@ function createKeyboard()
 
     //keyboardContainer.appendChild(fragment);
     return fragment;
+}
+
+function getPuzzleData() {
+    const dataInput = document.querySelector("#puzzleDataInput")
+    const fileReader = new FileReader()
+    fileReader.onload = (e) => {
+        console.log(e.target.result)
+    }
 }
