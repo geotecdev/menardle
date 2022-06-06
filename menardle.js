@@ -14,6 +14,7 @@ let rowIndex = 0;
 let selectedTile;
 let selectedRow;
 let puzzleDatesDd;
+let gameHasStarted = false;
 
 window.onload = function() {
     //populate puzzleDatesBox with dates <= today
@@ -23,18 +24,16 @@ window.onload = function() {
     currentDateText = dateToString(currentDate);
     let avalibleDates = getAvalibleDates(currentDateText);
     puzzleDatesDd = document.querySelector("#puzzleDatesDropdown");
-    console.log(avalibleDates);
+    //puzzleDatesDd.setAttribute("hidden", false);
     avalibleDates.forEach(aDate => {
         let option = document.createElement("option");
         option.value = aDate;
         option.innerHTML = aDate;
-        console.log(option);
         puzzleDatesDd.appendChild(option);
     });
 
     //dd change event sets today as current date
     puzzleDateChange(puzzleDatesDd);
-    console.log(solution);
 
     keyboardContainer = document.querySelector("#keyboardContainer");
     kbContent = createKeyboard();
@@ -66,6 +65,11 @@ document.onkeypress = function(evt) {
 }
 
 function passLetter(letterGuess) {
+    if (gameHasStarted === false) {
+        gameHasStarted = true;                    
+        puzzleDatesDd.setAttribute("hidden", true);
+        console.log(puzzleDatesDd);
+    }
     if (letterGuess.length === 1 && letterGuess.match(/[a-z]/i)) {
         letterGuess = letterGuess.toUpperCase();
         wordGuess += letterGuess;
@@ -265,7 +269,6 @@ function createKeyboard()
             keyElement.innerHTML = key;
             
             //add offset based on | count
-            console.log(indentOffsets[key]);
             keyElement.classList.add(indentOffsets[key]);
         }
         else if (key === "backspace") {
@@ -290,7 +293,7 @@ function createKeyboard()
             keyElement.setAttribute("data-colorId", 0);
             keyElement.setAttribute("data-isLetterKey", true);
             keyElement.addEventListener("click", () => {
-                let letterStr = key.toUpperCase();
+                let letterStr = key.toUpperCase();                
                 passLetter(letterStr);
             });
         }
@@ -304,12 +307,4 @@ function createKeyboard()
 
     //keyboardContainer.appendChild(fragment);
     return fragment;
-}
-
-function getPuzzleData() {
-    const dataInput = document.querySelector("#puzzleDataInput")
-    const fileReader = new FileReader()
-    fileReader.onload = (e) => {
-        console.log(e.target.result)
-    }
 }
