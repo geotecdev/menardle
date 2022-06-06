@@ -15,6 +15,7 @@ let selectedTile;
 let selectedRow;
 let puzzleDatesDd;
 let gameHasStarted = false;
+let gameIsWon = false;
 
 window.onload = function() {
     //populate puzzleDatesBox with dates <= today
@@ -55,7 +56,7 @@ function dateToString(date) {
     return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
 }
 
-//event to listen for periferal keyboard input
+//event to listen for peripheral keyboard input
 document.onkeypress = function(evt) {
     evt = evt || window.event;
     let charCode = evt.keyCode || evt.which;
@@ -74,7 +75,7 @@ function passLetter(letterGuess) {
         letterGuess = letterGuess.toUpperCase();
         wordGuess += letterGuess;
         if (tileIndex == "4" || tileIndex == "9" || tileIndex == "14" || tileIndex == "19" || tileIndex == "24" || tileIndex == "29") {
-            let guessColors = checkWordGuess(solution, wordGuess)
+            let guessColors = checkWordGuess(solution, wordGuess);
             //set tile colors
             let sRowTiles = selectedRow.getElementsByTagName("div");
             if (sRowTiles.length > 4) {
@@ -89,6 +90,13 @@ function passLetter(letterGuess) {
                         sTile.style.color = "white";
                     }
                 }
+            }
+
+            if (gameIsWon) {
+                setTimeout(function() {
+                    gameIsWon = false;
+                    alert("YOU WIN!!!!");                    
+                }, 500);                
             }
 
             //set keyboard colors
@@ -187,7 +195,7 @@ function setKeyColors(wordGuess, solution, guessColors) {
 
 function checkWordGuess(solution, wordGuess) {
     if (wordGuess === solution) {
-        alert("YOU WIN!!!!");
+        gameIsWon = true;
         return [ 2, 2, 2, 2, 2 ];
     }
 
@@ -294,7 +302,7 @@ function createKeyboard()
             keyElement.setAttribute("data-isLetterKey", true);
             keyElement.addEventListener("click", () => {
                 let letterStr = key.toUpperCase();                
-                passLetter(letterStr);
+                passLetter(letterStr);                
             });
         }
 
