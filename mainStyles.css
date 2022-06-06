@@ -59,9 +59,16 @@
 }
 
 #resultImage {
-    height: auto;
-    width: auto;
+    max-width: 350px;
+    max-height: 400px;
+}
+
+/* display: none; */
+
+#gameResetBtn {
     display: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .closeSpan:hover

@@ -23,6 +23,7 @@ let closeSpan;
 let resultsText;
 let resetOnWinBtn;
 let resultImage;
+let gameResetBtn;
 
 window.onload = function() {
     //populate puzzleDatesBox with dates <= today
@@ -44,6 +45,11 @@ window.onload = function() {
     currentDate = new Date();
     currentDateText = dateToString(currentDate);
     let avalibleDates = getAvalibleDates(currentDateText);
+    gameResetBtn = document.querySelector("#gameResetBtn");
+    gameResetBtn.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        location.reload();
+    });
     puzzleDatesDd = document.querySelector("#puzzleDatesDropdown");
     //puzzleDatesDd.setAttribute("hidden", false);
     avalibleDates.forEach(aDate => {
@@ -90,6 +96,7 @@ function passLetter(letterGuess) {
     if (gameHasStarted === false) {
         gameHasStarted = true;                    
         puzzleDatesDd.setAttribute("hidden", true);
+        changeElementVisibility(gameResetBtn, "block");
         console.log(puzzleDatesDd);
     }
     if (letterGuess.length === 1 && letterGuess.match(/[a-z]/i)) {
@@ -346,12 +353,11 @@ function showResultsModal(solutionObj) {
         if (solutionObj.displayText.includes('[') && solutionObj.displayText.includes(']')) {
             let hlText = solutionObj.displayText.substring(solutionObj.displayText.indexOf("[") + 1, solutionObj.displayText.indexOf("]"));
             solutionObj.displayText = solutionObj.displayText.replace("[", "<a href='" + solutionObj.linkUrl);
-            solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "'>" + hlText + "</a>");
-            
+            solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "'>" + hlText + "</a>");            
         }
     }
     if (solutionObj.imageUrl != undefined && solutionObj.imageUrl !== "") {
-
+        resultImage.setAttribute("src", solutionObj.imageUrl);
     }
 
     resultsText.innerHTML = solutionObj.displayText;
