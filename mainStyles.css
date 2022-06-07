@@ -5,11 +5,18 @@
 
 .jumbotron {
     text-align: center;
-    background-color: #7a1818;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 0;
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid firebrick;
     margin-bottom: 15px;
+}
+
+#siteLogo {
+    max-height: 80px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #resultsModal {
@@ -25,6 +32,14 @@
     background-color: rgba(0,0,0,0.4);
 }
 
+
+#puzzleDatesDropdown {
+    margin-bottom: 10px;
+}
+
+#gameResetBtn {
+    margin-bottom: 10px;
+}
 
 #resultsModalContent {
     background-color: ghostwhite;

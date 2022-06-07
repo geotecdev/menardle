@@ -16,8 +16,7 @@
     <!-- <textarea id="wordGuessArea" onkeypress="keyPress(event)" ></textarea> -->
     <!-- onkeypress="keyPress(event)" -->
     <header class="jumbotron">
-        <h1 class="display-3">Menardle</h1>
-        <p class="lead">a geotechnical word puzzle!</p>
+        <img id="siteLogo" src="menardle_logo.png" />
         <!-- <p id="currentDay" class="lead"></p> -->
         <select id="puzzleDatesDropdown" onchange="puzzleDateChange(this)">
             
@@ -84,7 +83,7 @@
     <div id="resultsModal">
         <div id="resultsModalContent">
             <span id="closeSpan">&times;</span>
-            <h3>YOU WIN!</h3>
+            <h3 id="modalHeader">YOU WIN!</h3>
             <p id="resultsText"></p>
             <img id="resultImage">
             <button id="resetOnWinBtn">reset game</button>

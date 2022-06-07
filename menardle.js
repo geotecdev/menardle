@@ -125,7 +125,7 @@ function passLetter(letterGuess) {
                     gameIsWon = false;
                     showResultsModal(solutionObj);                    
                 }, 500);                
-            }
+            }            
 
             //set keyboard colors
             setKeyColors(wordGuess, solution, guessColors);
@@ -138,6 +138,11 @@ function passLetter(letterGuess) {
 
             //reset guess for next row
             wordGuess = ""; 
+
+            if (rowIndex === 6 && gameIsWon === false) {
+                console.log("failed game breakpoint hit");
+                showResultsModalFailed();
+            }
         }
         else {
             tileIndex++;
@@ -345,9 +350,14 @@ function createKeyboard()
     return fragment;
 }
 
+function showResultsModalFailed() {
+    let modalHeader = document.querySelector("#modalHeader");
+    modalHeader.innerHTML = "valiant effort!";
+    resultsText.innerHTML = "but unfortunately, you are out of guesses. Would you like to try again?";
+    changeElementVisibility(resultsModal, "block");
+}
+
 function showResultsModal(solutionObj) {
-    console.log(solutionObj.displayText);
-    let rawResultText = solutionObj.displayText;
     if (solutionObj.linkUrl != undefined && solutionObj.linkUrl !== "") {
         //find text to attach link
         if (solutionObj.displayText.includes('[') && solutionObj.displayText.includes(']')) {
