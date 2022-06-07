@@ -362,8 +362,8 @@ function showResultsModal(solutionObj) {
         //find text to attach link
         if (solutionObj.displayText.includes('[') && solutionObj.displayText.includes(']')) {
             let hlText = solutionObj.displayText.substring(solutionObj.displayText.indexOf("[") + 1, solutionObj.displayText.indexOf("]"));
-            solutionObj.displayText = solutionObj.displayText.replace("[", "<a href='" + solutionObj.linkUrl);
-            solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "'>" + hlText + "</a>");            
+            solutionObj.displayText = solutionObj.displayText.replace("[", "<a href='" + solutionObj.linkUrl + "'>");
+            solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "</a>");            
         }
     }
     if (solutionObj.imageUrl != undefined && solutionObj.imageUrl !== "") {
