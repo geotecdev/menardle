@@ -120,7 +120,7 @@
 }
 
 .orangeHighlight {
-    background-color: orange;
+    background-color: yellow;
     color: white;
 }
 
@@ -169,9 +169,12 @@
     width: 16%;
 }
 
+.keyboard__key--med {
+    width: 16%;
+}
 
 .keyboard__key--extra-wide {
-    width: 65%;
+    width: 55%;
     margin-left: 25px;
     max-width: 1300px;
 }
@@ -227,7 +230,7 @@ max-width: 700px; */
     margin-bottom: 5px;
     font-size: 40px;
     text-align: center;
-    text-indent: 7px;
+    text-indent: 14px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;

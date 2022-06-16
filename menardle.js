@@ -114,7 +114,7 @@ function passLetter(letterGuess) {
                         sTile.style.color = "white";
                     }
                     else if (guessColors[i] === 1) {
-                        sTile.style.backgroundColor = "orange";
+                        sTile.style.backgroundColor = "gold";
                         sTile.style.color = "white";
                     }
                 }
@@ -201,7 +201,7 @@ function setKeyColors(wordGuess, solution, guessColors) {
             if (letterColor > 0) {
                 if (parseInt(kbKey.getAttribute("data-colorId")) < letterColor) {
                     kbKey.setAttribute("data-colorId", letterColor);
-                    let newColor = letterColor === 1 ? "orange" : "green";
+                    let newColor = letterColor === 1 ? "gold" : "green";
                     kbKey.setAttribute("data-color", newColor);
                     console.log(newColor);
                     if (newColor === "green") {
@@ -209,7 +209,7 @@ function setKeyColors(wordGuess, solution, guessColors) {
                         kbKey.style.color = "white";
                     }
                     else {
-                        kbKey.style.backgroundColor = "orange";
+                        kbKey.style.backgroundColor = "gold";
                         kbKey.style.color = "white";
                     }
                 }
@@ -293,7 +293,7 @@ function createKeyboard()
         "|", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
         "||", "a", "s", "d", "f", "g", "h", "j", "k", "l",
         "|||", "z", "x", "c", "v", "b", "n", "m", ",", ".",
-        "space", "backspace"
+        "space", "backspace", "enter"
     ];
 
     const indentOffsets = { "|": "keyboard__key--wide1", "||": "keyboard__key--wide2", "|||": "keyboard__key--wide3" }
@@ -311,21 +311,34 @@ function createKeyboard()
             
             //add offset based on | count
             keyElement.classList.add(indentOffsets[key]);
+            keyElement.innerHTML = "";
+            keyElement.style.opacity = "0.3"
         }
         else if (key === "backspace") {
-            keyElement.classList.add("keyboard__key--wide");
-            keyElement.innerHTML = "←";
+            keyElement.classList.add("keyboard__key--med");
+            keyElement.innerHTML = "bkspc";
+            keyElement.classList.add("deleteKey");
             keyElement.addEventListener("click", () => {
                 passLetter("backspace")
+            });
+        }
+        else if (key === "enter") {
+            keyElement.classList.add("keyboard__key--med");
+            keyElement.classList.add("enterKey");
+            keyElement.innerHTML = "→";
+            keyElement.addEventListener("click", () => {
+                passLetter("enter")
             });
         }
         else if (key === "space") {
             keyElement.classList.add("keyboard__key--extra-wide");
             keyElement.innerHTML = "_";
+            keyElement.style.opacity = "0.3"
         }
         else if (key === "," || key == ".") {
             keyElement.textContent = key.toUpperCase();
             keyElement.disabled = true;
+            keyElement.style.opacity = "0.3"
         }
         else {
             keyElement.textContent = key.toUpperCase();
@@ -352,7 +365,7 @@ function createKeyboard()
 
 function showResultsModalFailed() {
     let modalHeader = document.querySelector("#modalHeader");
-    modalHeader.innerHTML = "valiant effort!";
+    modalHeader.innerHTML = "good try!";
     resultsText.innerHTML = "but unfortunately, you are out of guesses. Would you like to try again?";
     changeElementVisibility(resultsModal, "block");
 }
@@ -363,7 +376,8 @@ function showResultsModal(solutionObj) {
         if (solutionObj.displayText.includes('[') && solutionObj.displayText.includes(']')) {
             let hlText = solutionObj.displayText.substring(solutionObj.displayText.indexOf("[") + 1, solutionObj.displayText.indexOf("]"));
             solutionObj.displayText = solutionObj.displayText.replace("[", "<a href='" + solutionObj.linkUrl + "'>");
-            solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "</a>");            
+            //solutionObj.displayText = solutionObj.displayText.replace("]", hlText + "</a>");
+            solutionObj.displayText = solutionObj.displayText.replace("]", "</a>");            
         }
     }
     if (solutionObj.imageUrl != undefined && solutionObj.imageUrl !== "") {
@@ -377,4 +391,14 @@ function showResultsModal(solutionObj) {
 
 function changeElementVisibility(el, displayStyle) {
     el.style.display = displayStyle;
+}
+
+function toggleEnterBackspace(activateEnter=false) {
+    let enterKey = kbContent.querySelector(".enterKey")
+    let deleteKey = kbContent.querySelector(".deleteKey")
+    if (activateEnter) {
+        enterKey.disabled = false;
+    } else {
+        enterKey.disabled = true;
+    }
 }
