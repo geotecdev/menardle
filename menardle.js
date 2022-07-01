@@ -24,6 +24,7 @@ let resultsText;
 let resetOnWinBtn;
 let resultImage;
 let gameResetBtn;
+let rowIsLocked = false;
 
 window.onload = function() {
     //populate puzzleDatesBox with dates <= today
@@ -100,58 +101,82 @@ function passLetter(letterGuess) {
         console.log(puzzleDatesDd);
     }
     if (letterGuess.length === 1 && letterGuess.match(/[a-z]/i)) {
-        letterGuess = letterGuess.toUpperCase();
-        wordGuess += letterGuess;
-        if (tileIndex == "4" || tileIndex == "9" || tileIndex == "14" || tileIndex == "19" || tileIndex == "24" || tileIndex == "29") {
-            let guessColors = checkWordGuess(solution, wordGuess);
-            //set tile colors
-            let sRowTiles = selectedRow.getElementsByTagName("div");
-            if (sRowTiles.length > 4) {
-                for (let i = 0; i < 5; i++) {
-                    let sTile = sRowTiles[i];
-                    if (guessColors[i] === 2) {
-                        sTile.style.backgroundColor = "green";
-                        sTile.style.color = "white";
-                    }
-                    else if (guessColors[i] === 1) {
-                        sTile.style.backgroundColor = "gold";
-                        sTile.style.color = "white";
-                    }
+        if (rowIsLocked === false) {
+            letterGuess = letterGuess.toUpperCase();
+            wordGuess += letterGuess;
+            if (tileIndex == "4" || tileIndex == "9" || tileIndex == "14" || tileIndex == "19" || tileIndex == "24" || tileIndex == "29") {
+                enterKeyBtn = document.querySelector(".enterKey")
+                changeElementVisibility(enterKeyBtn, "inline");
+                selectedTile.innerHTML = letterGuess;
+                //toggleEnterBackspace(true);
+                rowIsLocked = true;
+            }
+            else {
+                tileIndex++;
+                selectedTile.innerHTML = letterGuess;
+                selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
+            }
+        }
+    }
+}
+
+function enterKey() {
+    if (wordGuess.length === 5) {
+        console.log("t2");
+        let guessColors = checkWordGuess(solution, wordGuess);
+        //set tile colors
+        let sRowTiles = selectedRow.getElementsByTagName("div");
+        if (sRowTiles.length > 4) {
+            for (let i = 0; i < 5; i++) {
+                let sTile = sRowTiles[i];
+                if (guessColors[i] === 2) {
+                    sTile.style.backgroundColor = "green";
+                    sTile.style.color = "white";
+                }
+                else if (guessColors[i] === 1) {
+                    sTile.style.backgroundColor = "gold";
+                    sTile.style.color = "white";
                 }
             }
-
-            if (gameIsWon) {
-                setTimeout(function() {
-                    gameIsWon = false;
-                    showResultsModal(solutionObj);                    
-                }, 500);                
-            }            
-
-            //set keyboard colors
-            setKeyColors(wordGuess, solution, guessColors);
-
-            tileIndex++;
-            rowIndex++;
-            selectedTile.innerHTML = letterGuess;
-            selectedRow = document.querySelector("#tileRow" + rowIndex);
-            selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
-
-            //reset guess for next row
-            wordGuess = ""; 
-
-            if (rowIndex === 6 && gameIsWon === false) {
-                console.log("failed game breakpoint hit");
-                showResultsModalFailed();
-            }
         }
-        else {
-            tileIndex++;
-            selectedTile.innerHTML = letterGuess;
-            selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
+
+        if (gameIsWon) {
+            setTimeout(function() {
+                gameIsWon = false;
+                showResultsModal(solutionObj);                    
+            }, 500);                
+        }            
+
+        //set keyboard colors
+        setKeyColors(wordGuess, solution, guessColors);
+
+        tileIndex++;
+        rowIndex++;
+        selectedTile.innerHTML = wordGuess[wordGuess.length - 1];
+        selectedRow = document.querySelector("#tileRow" + rowIndex);
+        selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
+        rowIsLocked = false;
+        //reset guess for next row
+        wordGuess = ""; 
+
+        if (rowIndex === 6 && gameIsWon === false) {
+            console.log("failed game breakpoint hit");
+            showResultsModalFailed();
         }
-    } 
-    else if (letterGuess == "backspace") {
-        if (wordGuess.length > 0) {
+
+        //disable enter button
+        //toggleEnterBackspace(false);
+        changeElementVisibility(enterKeyBtn, "none");
+    }
+}
+
+function backspaceKey() {
+    if (wordGuess.length > 0) {
+        rowIsLocked = false;
+        if (wordGuess.length === 5) {
+            wordGuess = wordGuess.substring(0, wordGuess.length - 1);
+            selectedTile.innerHTML = "";
+        } else {
             wordGuess = wordGuess.substring(0, wordGuess.length - 1);
             tileIndex--;
             selectedTile = document.querySelector('[data-tileIndex="' + tileIndex  +'"]');
@@ -229,6 +254,7 @@ function setKeyColors(wordGuess, solution, guessColors) {
 function checkWordGuess(solution, wordGuess) {
     if (wordGuess === solution) {
         gameIsWon = true;
+        console.log("game is one check completed");
         return [ 2, 2, 2, 2, 2 ];
     }
 
@@ -319,7 +345,7 @@ function createKeyboard()
             keyElement.innerHTML = "bkspc";
             keyElement.classList.add("deleteKey");
             keyElement.addEventListener("click", () => {
-                passLetter("backspace")
+                backspaceKey()
             });
         }
         else if (key === "enter") {
@@ -327,18 +353,19 @@ function createKeyboard()
             keyElement.classList.add("enterKey");
             keyElement.innerHTML = "→";
             keyElement.addEventListener("click", () => {
-                passLetter("enter")
+                enterKey()
             });
+            changeElementVisibility(keyElement, "none");
         }
         else if (key === "space") {
             keyElement.classList.add("keyboard__key--extra-wide");
             keyElement.innerHTML = "_";
-            keyElement.style.opacity = "0.3"
+            keyElement.style.opacity = "0.3";
         }
         else if (key === "," || key == ".") {
-            keyElement.textContent = key.toUpperCase();
-            keyElement.disabled = true;
-            keyElement.style.opacity = "0.3"
+            keyElement.textContent = key.toUpperCase();            
+            keyElement.style.opacity = "0.3";
+            changeElementVisibility(keyElement, "none");
         }
         else {
             keyElement.textContent = key.toUpperCase();
@@ -366,7 +393,7 @@ function createKeyboard()
 function showResultsModalFailed() {
     let modalHeader = document.querySelector("#modalHeader");
     modalHeader.innerHTML = "good try!";
-    resultsText.innerHTML = "but unfortunately, you are out of guesses. Would you like to try again?";
+    resultsText.innerHTML = "but unfortunately, you are out of guesses for this round. Would you like to try again?";
     changeElementVisibility(resultsModal, "block");
 }
 
@@ -394,11 +421,13 @@ function changeElementVisibility(el, displayStyle) {
 }
 
 function toggleEnterBackspace(activateEnter=false) {
-    let enterKey = kbContent.querySelector(".enterKey")
-    let deleteKey = kbContent.querySelector(".deleteKey")
+    let enterKey = document.querySelector(".enterKey")
+    let deleteKey = document.querySelector(".deleteKey")
+    console.log("enterKey");
+    console.log(enterKey);
     if (activateEnter) {
-        enterKey.disabled = false;
+        changeElementVisibility(enterKey, "block");
     } else {
-        enterKey.disabled = true;
+        changeElementVisibility(enterKey, "none");
     }
 }

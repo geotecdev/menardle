@@ -176,8 +176,9 @@
 .keyboard__key--extra-wide {
     width: 55%;
     margin-left: 25px;
-    max-width: 1300px;
 }
+
+/* max-width: 1300px; */
 
 .keyboard__key--activatable::after {
     content: '';
