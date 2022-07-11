@@ -84,12 +84,23 @@ function dateToString(date) {
     return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
 }
 
+document.onkeydown = function(evt) {
+    const key = evt.key;
+    console.log(key);
+    if (key === "Backspace") {
+        backspaceKey();
+    }
+    else if (key === "Enter" && wordGuess.length === 5) {
+        enterKey();
+    }
+}
+
 //event to listen for peripheral keyboard input
 document.onkeypress = function(evt) {
     evt = evt || window.event;
     let charCode = evt.keyCode || evt.which;
     let letterGuess = String.fromCharCode(charCode).toUpperCase();
-
+    console.log(letterGuess);
     passLetter(letterGuess.toUpperCase());
 }
 
