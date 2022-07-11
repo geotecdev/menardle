@@ -319,7 +319,7 @@ function createKeyboard()
         "|", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
         "||", "a", "s", "d", "f", "g", "h", "j", "k", "l",
         "|||", "z", "x", "c", "v", "b", "n", "m", ",", ".",
-        "space", "backspace", "enter"
+        "enter", "space", "backspace"
     ];
 
     const indentOffsets = { "|": "keyboard__key--wide1", "||": "keyboard__key--wide2", "|||": "keyboard__key--wide3" }
@@ -342,8 +342,8 @@ function createKeyboard()
         }
         else if (key === "backspace") {
             keyElement.classList.add("keyboard__key--med");
-            keyElement.innerHTML = "bkspc";
             keyElement.classList.add("deleteKey");
+            keyElement.innerHTML = "<img id=\"backspaceIcon\" src=\"delete_icon.jpg\" />";
             keyElement.addEventListener("click", () => {
                 backspaceKey()
             });
@@ -351,7 +351,7 @@ function createKeyboard()
         else if (key === "enter") {
             keyElement.classList.add("keyboard__key--med");
             keyElement.classList.add("enterKey");
-            keyElement.innerHTML = "→";
+            keyElement.innerHTML = "ENTER";
             keyElement.addEventListener("click", () => {
                 enterKey()
             });

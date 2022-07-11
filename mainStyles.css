@@ -173,8 +173,17 @@
     width: 16%;
 }
 
+#backspaceIcon {
+    width: 60%;
+    height: 90%;
+}
+
+.deleteKey {
+    background-color: transparent;
+}
+
 .keyboard__key--extra-wide {
-    width: 55%;
+    width: 70%;
     margin-left: 25px;
 }
 
