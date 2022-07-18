@@ -265,7 +265,6 @@ function setKeyColors(wordGuess, solution, guessColors) {
 function checkWordGuess(solution, wordGuess) {
     if (wordGuess === solution) {
         gameIsWon = true;
-        console.log("game is one check completed");
         return [ 2, 2, 2, 2, 2 ];
     }
 
@@ -300,8 +299,7 @@ function checkWordGuess(solution, wordGuess) {
             }
         }
     }
-
-    console.log(guessColors);
+    
     return guessColors;
 }
 
