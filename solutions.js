@@ -47,7 +47,8 @@ function getPuzzleSolutions() {
     "STONE;7/18/2022;7/24/2022;https://www.menardgroupusa.com/solutions/stone-columns-for-ground-improvement/;;STONE is one of the most ubiquitous construction materials in the world.  [Stone columns] are ground improvement elements commonly used to reinforce or densify the ground." + '\n' +
     "TRUCK;7/25/2022;7/31/2022;;https://www.menardgroupusa.com/wp-content/uploads/2022/06/Truck.jpeg;Rugged and dependable, the TRUCK is the vehicle of choice for many in the construction industry." + '\n' +
     "PRINT;8/01/2022;8/07/2022;https://www.menardgroupusa.com/solutions/dynamic-compaction-for-ground-improvement/;;The location of [dynamic compaction] drops, the depression or crater left behind is sometimes referred to as a PRINT." + '\n' +
-    "GLOVE;8/08/2022;8/14/2022;;./images/8-8-glove-image.jpg;Safety GLOVEs are an important part of standard Personal Protective Equipment (PPE) worn on site by our crews.";
+    "GLOVE;8/08/2022;8/14/2022;;./images/8-8-glove-image.jpg;Safety GLOVEs are an important part of standard Personal Protective Equipment (PPE) worn on site by our crews." + "\n" +
+    "WATER;8/15/2022;8/21/2022;https://www.menardgroupusa.com/solutions/wick-drains-for-ground-improvement/;;[WATER] is the stuff of life, but the culprit of many foundation and geotechnical issues. Wick Drains aka Prefabricated Vertical Drains are used to alleviate groundwater pore pressure and expedite consolidation settlement in soft, compressible layers.";
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
