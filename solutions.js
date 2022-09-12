@@ -51,7 +51,8 @@ function getPuzzleSolutions() {
     "WATER;8/15/2022;8/21/2022;https://www.menardgroupusa.com/solutions/wick-drains-for-ground-improvement/;;WATER is the staff of life, but the culprit of many foundation and geotechnical issues. [Wick Drains] aka Prefabricated Vertical Drains are used to alleviate groundwater pore pressure and expedite consolidation settlement in soft, compressible layers." + '\n' +
     "SILTY;8/22/2022;8/28/2022;https://dot.ca.gov/-/media/dot-media/programs/maintenance/documents/office-of-concrete-pavement/pavement-foundations/uscs-a11y.pdf;;SILTY is a modifier to describe a relatively high silt content in soil.  For example, silty sand (SM) and silty gravel (GM) as classified under the [Unified Soil Classification System]." + '\n' +
     "AUGER;8/29/2022;9/04/2022;https://www.menardgroupusa.com/resource/port-gulfport-restoration-program/;./images/8-29-auger-image.jpg;AUGERS were used to pre-loosen upper dense soils in advance of wick drain installation for the Port of Gulfport, [MS Restoration Program.]" + '\n' +
-    "SHAFT;9/05/2022;9/11/2022;https://www.nicholsonconstruction.com/drill-down;;Our friends at Nicholson Construction offer a range of support of excavation and hydraulic cutoff services for tunnel and SHAFT structures.  Read more in the [Nicholson Drill Down!]"
+    "SHAFT;9/05/2022;9/11/2022;https://www.nicholsonconstruction.com/drill-down;;Our friends at Nicholson Construction offer a range of support of excavation and hydraulic cutoff services for tunnel and SHAFT structures.  Read more in the [Nicholson Drill Down!]" + '\n' +
+    "VUGGY;9/12/2022;9/18/2022;;./images/9-12-vuggy-image.jpg;	Sorry Menardlers! This is a tough one! VUGGY is containing vugs which are small to medium-sized cavities or pores in rock that are commonly lined with mineral deposits.";
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
