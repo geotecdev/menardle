@@ -52,7 +52,9 @@ function getPuzzleSolutions() {
     "SILTY;8/22/2022;8/28/2022;https://dot.ca.gov/-/media/dot-media/programs/maintenance/documents/office-of-concrete-pavement/pavement-foundations/uscs-a11y.pdf;;SILTY is a modifier to describe a relatively high silt content in soil.  For example, silty sand (SM) and silty gravel (GM) as classified under the [Unified Soil Classification System]." + '\n' +
     "AUGER;8/29/2022;9/04/2022;https://www.menardgroupusa.com/resource/port-gulfport-restoration-program/;./images/8-29-auger-image.jpg;AUGERS were used to pre-loosen upper dense soils in advance of wick drain installation for the Port of Gulfport, [MS Restoration Program.]" + '\n' +
     "SHAFT;9/05/2022;9/11/2022;https://www.nicholsonconstruction.com/drill-down;;Our friends at Nicholson Construction offer a range of support of excavation and hydraulic cutoff services for tunnel and SHAFT structures.  Read more in the [Nicholson Drill Down!]" + '\n' +
-    "VUGGY;9/12/2022;9/18/2022;;./images/9-12-vuggy-image.jpg;	Sorry Menardlers! This is a tough one! VUGGY is containing vugs which are small to medium-sized cavities or pores in rock that are commonly lined with mineral deposits.";
+    "VUGGY;9/12/2022;9/18/2022;;./images/9-12-vuggy-image.jpg; Sorry Menardlers! This is a tough one! VUGGY is containing vugs which are small to medium-sized cavities or pores in rock that are commonly lined with mineral deposits." + '\n' +
+    "SIEVE;9/19/2022;9/25/2022;;./images/9-19-sieve-image.jpg; SIEVE analysis consists of shaking soil through a set of sieves that have progressively smaller openings in order to determine the particle size distribution of coarse soils.";
+
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
