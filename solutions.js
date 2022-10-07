@@ -55,8 +55,8 @@ function getPuzzleSolutions() {
     "VUGGY;9/12/2022;9/18/2022;;./images/9-12-vuggy-image.jpg; Sorry Menardlers! This is a tough one! VUGGY is containing vugs which are small to medium-sized cavities or pores in rock that are commonly lined with mineral deposits." + '\n' +
     "SIEVE;9/19/2022;9/25/2022;;./images/9-19-sieve-image.jpg; SIEVE analysis consists of shaking soil through a set of sieves that have progressively smaller openings in order to determine the particle size distribution of coarse soils." + '\n' +
     "RIGID;9/26/2022;10/02/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;Well of course RIGID is a Menardle word! [Controlled Modulus Column (CMC)®] rigid inclusions increase bearing capacity and reduce settlement under light to heavy loads in most types of ground." + '\n' +
-    "PANEL;10/03/2022;10/09/2022;https://reinforcedearth.com/projects/architectural-gallery/;./images/10-3-panel-image.jpg;There are many types of [PANELs] used in construction, but some of the most beautiful  are seen on The Reinforced Earth Company’s walls."
-
+    "PANEL;10/03/2022;10/09/2022;https://reinforcedearth.com/projects/architectural-gallery/;./images/10-3-panel-image.jpg;There are many types of [PANELs] used in construction, but some of the most beautiful  are seen on The Reinforced Earth Company’s walls." + '\n' +
+    "SLING;10/10/2022;10/16/2022;;./images/10-10-sling-image.jpg;Rigging or lifting SLINGs are made of cable, chain, rope or webbing, and used with a lift or crane to safely move heavy items."
 
 
     let csvLines = dataCsv.split('\n');
