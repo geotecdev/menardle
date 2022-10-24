@@ -57,8 +57,8 @@ function getPuzzleSolutions() {
     "RIGID;9/26/2022;10/02/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;Well of course RIGID is a Menardle word! [Controlled Modulus Column (CMC)®] rigid inclusions increase bearing capacity and reduce settlement under light to heavy loads in most types of ground." + '\n' +
     "PANEL;10/03/2022;10/09/2022;https://reinforcedearth.com/projects/architectural-gallery/;./images/10-3-panel-image.jpg;There are many types of [PANELs] used in construction, but some of the most beautiful  are seen on The Reinforced Earth Company’s walls." + '\n' +
     "SLING;10/10/2022;10/16/2022;;./images/10-10-sling-image.jpg;Rigging or lifting SLINGs are made of cable, chain, rope or webbing, and used with a lift or crane to safely move heavy items." + "\n" +
-    "KARST;10/17/2022;10/23/2022;https://earthtech.com/sinkhole-grouting-and-foundation-repair/;;KARST is a topography formed from the dissolution of soluble rocks such as limestone, dolomite, and gypsum. [Earth Tech, LLC] has been grouting sinkholes in Karstic limestone since 1991.";
-
+    "KARST;10/17/2022;10/23/2022;https://earthtech.com/sinkhole-grouting-and-foundation-repair/;;KARST is a topography formed from the dissolution of soluble rocks such as limestone, dolomite, and gypsum. [Earth Tech, LLC] has been grouting sinkholes in Karstic limestone since 1991." + "\n" +
+    "SLAKE;10/24/2022;10/30/2022;https://www.youtube.com/watch?v=5UfnbiBo-Ds;;SLAKE is generally defined as the breakdown of earth materials when exposed to water. The concept is demonstrated [here]";
 
 
     let csvLines = dataCsv.split('\n');
