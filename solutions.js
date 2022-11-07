@@ -59,7 +59,8 @@ function getPuzzleSolutions() {
     "SLING;10/10/2022;10/16/2022;;./images/10-10-sling-image.jpg;Rigging or lifting SLINGs are made of cable, chain, rope or webbing, and used with a lift or crane to safely move heavy items." + "\n" +
     "KARST;10/17/2022;10/23/2022;https://earthtech.com/sinkhole-grouting-and-foundation-repair/;;KARST is a topography formed from the dissolution of soluble rocks such as limestone, dolomite, and gypsum. [Earth Tech, LLC] has been grouting sinkholes in Karstic limestone since 1991." + "\n" +
     "SLAKE;10/24/2022;10/30/2022;https://www.youtube.com/watch?v=5UfnbiBo-Ds;;SLAKE is generally defined as the breakdown of earth materials when exposed to water. The concept is demonstrated [here]" + "\n" +
-    "SHEAR;10/31/2022;11/06/2022;https://www.menardgroupusa.com/solutions/soil-mixing-for-ground-improvement/;;SHEAR strength in soils refers to the maximum shear stress that a soil can sustain without experiencing failure.  [Soil mixing] is one of many ground improvement techniques that can increase the shear strength of soil layers. ";
+    "SHEAR;10/31/2022;11/06/2022;https://www.menardgroupusa.com/solutions/soil-mixing-for-ground-improvement/;;SHEAR strength in soils refers to the maximum shear stress that a soil can sustain without experiencing failure.  [Soil mixing] is one of many ground improvement techniques that can increase the shear strength of soil layers. " + '\n' +
+    "THUMP;11/07/2022;11/13/2022;;./images/11-07-thump-image.png;To THUMP is to hit or pound heavily. Thumper trucks like this one are used to generate seismic vibrations for geophysical investigations.";
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
