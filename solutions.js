@@ -42,7 +42,7 @@ function getAvalibleDates(gameDateText) {
 function getPuzzleSolutions() {
     let solutionObjs = [];
     dataCsv =
-    "solution;puzzleDate;maxDate;linkUrl;imageUrl;displayText" + '\n' +
+    "solution;puzzleDate;maxDate;linkUrl;imageUrl;displayText " + '\n' +
     "GROUT;7/11/2022;7/17/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;[Controlled Modulus Columns (CMC)®] are typically formed of cementitious GROUT. " + '\n' +
     "STONE;7/18/2022;7/24/2022;https://www.menardgroupusa.com/solutions/stone-columns-for-ground-improvement/;;STONE is one of the most ubiquitous construction materials in the world.  [Stone columns] are ground improvement elements commonly used to reinforce or densify the ground." + '\n' +
     "TRUCK;7/25/2022;7/31/2022;;https://www.menardgroupusa.com/wp-content/uploads/2022/06/Truck.jpeg;Rugged and dependable, the TRUCK is the vehicle of choice for many in the construction industry." + '\n' +
