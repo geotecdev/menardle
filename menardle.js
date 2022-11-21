@@ -154,6 +154,7 @@ function enterKey() {
         if (gameIsWon) {
             setTimeout(function() {
                 gameIsWon = false;
+                console.log(solutionObj)
                 showResultsModal(solutionObj);                    
             }, 500);                
         }            

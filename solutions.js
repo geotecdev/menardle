@@ -42,7 +42,7 @@ function getAvalibleDates(gameDateText) {
 function getPuzzleSolutions() {
     let solutionObjs = [];
     dataCsv =
-    "solution;puzzleDate;maxDate;linkUrl;imageUrl;displayText " + '\n' +
+    "solution;puzzleDate;maxDate;linkUrl;imageUrl;displayText" + '\n' +
     "GROUT;7/11/2022;7/17/2022;https://www.menardgroupusa.com/solutions/controlled-modulus-column-rigid-inclusions-for-ground-improvement/;;[Controlled Modulus Columns (CMC)®] are typically formed of cementitious GROUT. " + '\n' +
     "STONE;7/18/2022;7/24/2022;https://www.menardgroupusa.com/solutions/stone-columns-for-ground-improvement/;;STONE is one of the most ubiquitous construction materials in the world.  [Stone columns] are ground improvement elements commonly used to reinforce or densify the ground." + '\n' +
     "TRUCK;7/25/2022;7/31/2022;;https://www.menardgroupusa.com/wp-content/uploads/2022/06/Truck.jpeg;Rugged and dependable, the TRUCK is the vehicle of choice for many in the construction industry." + '\n' +
@@ -61,7 +61,8 @@ function getPuzzleSolutions() {
     "SLAKE;10/24/2022;10/30/2022;https://www.youtube.com/watch?v=5UfnbiBo-Ds;;SLAKE is generally defined as the breakdown of earth materials when exposed to water. The concept is demonstrated [here]" + "\n" +
     "SHEAR;10/31/2022;11/06/2022;https://www.menardgroupusa.com/solutions/soil-mixing-for-ground-improvement/;;SHEAR strength in soils refers to the maximum shear stress that a soil can sustain without experiencing failure.  [Soil mixing] is one of many ground improvement techniques that can increase the shear strength of soil layers. " + '\n' +
     "THUMP;11/07/2022;11/13/2022;;./images/11-07-thump-image.png;To THUMP is to hit or pound heavily. Thumper trucks like this one are used to generate seismic vibrations for geophysical investigations." + "\n" +
-    "DOZER;11/14/2022;11/20/2022;https://www.menardusa.com/techniques/;;A DOZER or bulldozer is a large powerful machine that is equipped with a blade mounted across the front that is used for earthmoving and grading.  Dozers are commonly used in conjunction with dynamic replacement and dynamic compaction to fill craters. Read about these ground improvement solutions and more [here] ";
+    "DOZER;11/14/2022;11/20/2022;https://www.menardusa.com/techniques/;;A DOZER or bulldozer is a large powerful machine that is equipped with a blade mounted across the front that is used for earthmoving and grading.  Dozers are commonly used in conjunction with dynamic replacement and dynamic compaction to fill craters. Read about these ground improvement solutions and more [here] " + '\n' +
+    "PLUME;11/21/2022;11/27/2022;https://www.remea-group.com/en/;./images/11-21-plume-image.jpg;In the environmental field, a PLUME refers to a zone of contaminated groundwater.  To learn about the remediation of contaminated groundwater, visit [Remea] ";
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
