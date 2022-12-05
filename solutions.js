@@ -63,7 +63,8 @@ function getPuzzleSolutions() {
     "THUMP;11/07/2022;11/13/2022;;./images/11-07-thump-image.png;To THUMP is to hit or pound heavily. Thumper trucks like this one are used to generate seismic vibrations for geophysical investigations." + "\n" +
     "DOZER;11/14/2022;11/20/2022;https://www.menardusa.com/techniques/;;A DOZER or bulldozer is a large powerful machine that is equipped with a blade mounted across the front that is used for earthmoving and grading.  Dozers are commonly used in conjunction with dynamic replacement and dynamic compaction to fill craters. Read about these ground improvement solutions and more [here] " + '\n' +
     "PLUME;11/21/2022;11/27/2022;https://www.remea-group.com/en/;./images/11-21-plume-image.jpg;In the environmental field, a PLUME refers to a zone of contaminated groundwater.  To learn about the remediation of contaminated groundwater, visit [Remea] "+ "\n" + 
-    "VIBRO;11/28/2022;12/04/2022;https://www.menardusa.com/soil-expert-portfolio/vibrocompaction/;;Vibratory methods are used to densify the ground with techniques such as [VIBRO-Compaction] and used to install ground improvement elements such as VIBRO-Stone Columns. ";
+    "VIBRO;11/28/2022;12/04/2022;https://www.menardusa.com/soil-expert-portfolio/vibrocompaction/;;Vibratory methods are used to densify the ground with techniques such as [VIBRO-Compaction] and used to install ground improvement elements such as VIBRO-Stone Columns. " + "\n" +
+    "BULGE;12/05/2022;12/11/2022;https://www.menardusa.com/soil-expert-portfolio/controlled-modulus-columns/;;In very soft ground, aggregate/stone columns can tend to BULGE due to lack of confinement.  [Controlled Modulus Column (CMC)®] rigid inclusions offer a safer alternative in very soft ground and are not a risk of bulging due to the stiffness of the elements.";
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
