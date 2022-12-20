@@ -66,7 +66,7 @@ function getPuzzleSolutions() {
     "VIBRO;11/28/2022;12/04/2022;https://www.menardusa.com/soil-expert-portfolio/vibrocompaction/;;Vibratory methods are used to densify the ground with techniques such as [VIBRO-Compaction] and used to install ground improvement elements such as VIBRO-Stone Columns. " + "\n" +
     "BULGE;12/05/2022;12/11/2022;https://www.menardusa.com/soil-expert-portfolio/controlled-modulus-columns/;;In very soft ground, aggregate/stone columns can tend to BULGE due to lack of confinement.  [Controlled Modulus Column (CMC)®] rigid inclusions offer a safer alternative in very soft ground and are not a risk of bulging due to the stiffness of the elements." + "\n" +
     "RAPID;12/12/2022;12/18/2022;https://www.menardusa.com/soil-expert-portfolio/rapid-impact-compaction/;./images/12-12-rapid-image.png;[RAPID Impact Compaction] is an efficient method for densifying layers at depth." + "\n" +
-    "CRANE;12/19/2022;12/25/2022;https://www.menardusa.com/soil-expert-portfolio/rapid-impact-compaction/;./images/12-19-crane-image.png;[Dynamic Compaction] uses CRANEs to repeatedly drop a weight on the ground in order to rearrange soil particles into a denser state.";
+    "CRANE;12/19/2022;12/25/2022;https://www.menardusa.com/soil-expert-portfolio/dynamic-compaction/;./images/12-19-crane-image.png;[Dynamic Compaction] uses CRANEs to repeatedly drop a weight on the ground in order to rearrange soil particles into a denser state.";
 
     let csvLines = dataCsv.split('\n');
     if (csvLines.length > 1)
